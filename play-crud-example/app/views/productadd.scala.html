@@ -1,0 +1,22 @@
+@(product: Form[CreateProductForm],category: Seq[Category])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+
+@form(routes.HomeController.addProductHandle()) {
+  @helper.CSRF.formField
+  @inputText(product("name"))
+  @inputText(product("description"))
+
+  <select name="category" id="category">
+  @for(cat <- category){
+    <option value="@cat.id">@cat.name</option>
+  }
+  </select>
+
+  <div class="buttons">
+    <input type="submit" value="Add Product"/>
+  </div>
+}
+  https://github.com/kprzystalski/ebiznes

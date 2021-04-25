@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ebiznes:
+    build: .
+    ports:
+    - 12345:9000
+    - 12346:3000
+    volumes:
+     - .:/home/kprzystalski/projekt/sklep/
+    working_dir: /home/kprzystalski/projekt/sklep
+    command: bash -c "source /home/kprzystalski/.sdkman/bin/sdkman-init.sh && sbt run"
