@@ -1,0 +1,112 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET         /                                         controllers.HomeController.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                             controllers.Assets.versioned(path="/public", file: Asset)
+
+# Category
+POST        /category/form/create                     controllers.CategoryController.create
+GET         /category/form/create                     controllers.CategoryController.createForm
+GET         /category/form                            controllers.CategoryController.getAll
+GET         /category/:id/form                        controllers.CategoryController.getById(id: Long)
+POST        /category/form/update                     controllers.CategoryController.update
+GET         /category/:id/form/update                 controllers.CategoryController.updateForm(id: Long)
+GET         /category/:id/delete                      controllers.CategoryController.delete(id: Long)
+
+GET         /category/json                            controllers.CategoryController.getAllJson
+
+# Discount
+POST        /discount/form/create                     controllers.DiscountController.create
+GET         /discount/form                            controllers.DiscountController.createForm
+GET         /discount                                 controllers.DiscountController.getAll
+GET         /discount/:id                             controllers.DiscountController.getById(id: Long)
+POST        /discount/form/update                     controllers.DiscountController.update
+GET         /discount/:id/form                        controllers.DiscountController.updateForm(id: Long)
+GET         /discount/:id/delete                      controllers.DiscountController.delete(id: Long)
+
+# Invoice
+POST        /invoice/form/create                      controllers.InvoiceController.create
+GET         /invoice/form/create                      controllers.InvoiceController.createForm
+GET         /invoice/form                             controllers.InvoiceController.getAll
+GET         /invoice/:id/form                         controllers.InvoiceController.getById(id: Long)
+POST        /invoice/form/update/update               controllers.InvoiceController.update
+GET         /invoice/:id/form/update                  controllers.InvoiceController.updateForm(id: Long)
+GET         /invoice/:id/delete                       controllers.InvoiceController.delete(id: Long)
+
+GET         /invoice/json                             controllers.InvoiceController.getAll
+
+# Order
+POST        /order/form/create                        controllers.OrderController.create
+GET         /order/form/create                        controllers.OrderController.createForm
+GET         /order/form                               controllers.OrderController.getAll
+GET         /order/:id/form                           controllers.OrderController.getById(id: Long)
+POST        /order/form/update                        controllers.OrderController.update
+GET         /order/:id/form/update                    controllers.OrderController.updateForm(id: Long)
+GET         /order/:id/delete                         controllers.OrderController.delete(id: Long)
+
+GET         /order/json                               controllers.OrderController.getAllJson
+POST        /order/json                               controllers.OrderController.createJson()
+
+# Payment
+POST        /payment/form/create                      controllers.PaymentController.create
+GET         /payment/form                             controllers.PaymentController.createForm
+GET         /payment                                  controllers.PaymentController.getAll
+GET         /payment/:id                              controllers.PaymentController.getById(id: Long)
+POST        /payment/form/update                      controllers.PaymentController.update
+GET         /payment/:id/form                         controllers.PaymentController.updateForm(id: Long)
+GET         /payment/:id/delete                       controllers.PaymentController.delete(id: Long)
+
+# Product
+POST        /product/form/create                      controllers.ProductController.create
+GET         /product/form/create                      controllers.ProductController.createForm
+GET         /product/form                             controllers.ProductController.getAll
+GET         /product/:id/form                         controllers.ProductController.getById(id: Long)
+POST        /product/form/update                      controllers.ProductController.update
+GET         /product/:id/form/update                  controllers.ProductController.updateForm(id: Long)
+GET         /product/:id/delete                       controllers.ProductController.delete(id: Long)
+
+GET         /product/json                             controllers.ProductController.getAllJson
+GET         /category/:categoryId/product/json        controllers.ProductController.getAllByCategoryIdJson(categoryId: Long)
+
+# Return
+POST        /return/form/create                       controllers.ReturnController.create
+GET         /return/form/create                       controllers.ReturnController.createForm
+GET         /return/form                              controllers.ReturnController.getAll
+GET         /return/:id/form                          controllers.ReturnController.getById(id: Long)
+POST        /return/form/update                       controllers.ReturnController.update
+GET         /return/:id/form/update                   controllers.ReturnController.updateForm(id: Long)
+GET         /return/:id/delete                        controllers.ReturnController.delete(id: Long)
+
+GET         /return/json                              controllers.ReturnController.getJson
+POST        /return/json                              controllers.ReturnController.createJson()
+
+# Review
+POST        /review/form/create                       controllers.ReviewController.create
+GET         /review/form/create                       controllers.ReviewController.createForm
+GET         /review/form                              controllers.ReviewController.getAll
+GET         /review/:id/form                          controllers.ReviewController.getById(id: Long)
+POST        /review/form/update                       controllers.ReviewController.update
+GET         /review/:id/form/update                   controllers.ReviewController.updateForm(id: Long)
+GET         /review/:id/delete                        controllers.ReviewController.delete(id: Long)
+
+GET         /review/json                              controllers.ReviewController.getAllJson
+POST        /review/json                              controllers.ReviewController.createJson()
+
+# Shipment
+POST        /shipment/form/create                     controllers.ShipmentController.create
+GET         /shipment/form                            controllers.ShipmentController.createForm
+GET         /shipment                                 controllers.ShipmentController.getAll
+GET         /shipment/:id                             controllers.ShipmentController.getById(id: Long)
+POST        /shipment/form/update                     controllers.ShipmentController.update
+GET         /shipment/:id/form                        controllers.ShipmentController.updateForm(id: Long)
+GET         /shipment/:id/delete                      controllers.ShipmentController.delete(id: Long)
+
+# Authentication
+POST        /signUp                                   controllers.SignUpController.signUp
+POST        /signIn                                   controllers.SignInController.signIn
+POST        /signOut                                  controllers.SignInController.signOut
+GET         /authenticate/:provider        controllers.SocialAuthController.authenticate(provider: String)
